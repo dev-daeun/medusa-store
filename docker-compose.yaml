@@ -28,7 +28,7 @@ services:
   # Medusa Server
   # This service runs the Medusa backend application
   # and the admin dashboard.
-  medusa:
+  backend:
     build: .
     container_name: medusa_backend
     restart: unless-stopped
