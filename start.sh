@@ -1,11 +1,12 @@
 #!/bin/sh
-cd /server/apps/backend
+set -e
+
+cd /server/apps/backend/.medusa/server
+
+test -f public/admin/index.html
 
 echo "Running database migrations..."
 pnpm medusa db:migrate
 
-echo "Seeding database..."
-pnpm seed || echo "Seeding failed, continuing..."
-
-echo "Starting Medusa development server..."
-pnpm dev
+echo "Starting backend server..."
+exec pnpm start

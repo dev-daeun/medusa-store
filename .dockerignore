@@ -10,9 +10,16 @@ yarn-error.log*
 .gitignore
 README.md
 .env.test
+**/.env
+**/.env.*
 .nyc_output
 coverage
 .DS_Store
 *.log
 dist
 build
+**/README.md
+**/__tests__
+**/*.spec.*
+**/*.test.*
+**/*.tsbuildinfo
