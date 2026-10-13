@@ -8,14 +8,14 @@ import { getAuthHeaders, getCacheTag, getCartId } from "./cookies"
 const LOCALE_COOKIE_NAME = "_medusa_locale"
 
 /**
- * Gets the current locale from cookies
+ * Gets the current locale from cookies, defaulting to Korean
  */
 export const getLocale = async (): Promise<string | null> => {
   try {
     const cookies = await nextCookies()
-    return cookies.get(LOCALE_COOKIE_NAME)?.value ?? null
+    return cookies.get(LOCALE_COOKIE_NAME)?.value || "ko-KR"
   } catch {
-    return null
+    return "ko-KR"
   }
 }
 
