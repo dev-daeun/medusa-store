@@ -14,10 +14,15 @@ COPY apps/backend/medusa-config.ts apps/backend/tsconfig.json apps/backend/instr
 COPY apps/backend/src ./apps/backend/src
 COPY --chmod=755 start.sh /usr/local/bin/start-medusa
 
-WORKDIR /server/apps/backend/.medusa/server
+WORKDIR /server/apps/backend
 
 RUN --mount=type=secret,id=backend_env,target=/server/apps/backend/.env,required=true \
     pnpm build
+
+WORKDIR /server/apps/backend/.medusa/server
+
+RUN ln -s ../../node_modules node_modules \
+    && test -x node_modules/.bin/medusa
 
 EXPOSE 9000 5173
 
