@@ -11,7 +11,7 @@ function CartMismatchBanner(props: {
 }) {
   const { customer, cart } = props
   const [isPending, setIsPending] = useState(false)
-  const [actionText, setActionText] = useState("Run transfer again")
+  const [actionText, setActionText] = useState("다시 연결하기")
 
   if (!customer || !!cart.customer_id) {
     return
@@ -20,11 +20,11 @@ function CartMismatchBanner(props: {
   const handleSubmit = async () => {
     try {
       setIsPending(true)
-      setActionText("Transferring..")
+      setActionText("연결중...")
 
       await transferCart()
     } catch {
-      setActionText("Run transfer again")
+      setActionText("다시 연결하기")
       setIsPending(false)
     }
   }
@@ -34,7 +34,7 @@ function CartMismatchBanner(props: {
       <div className="flex flex-col small:flex-row small:gap-2 gap-1 items-center">
         <span className="flex items-center gap-1">
           <ExclamationCircleSolid className="inline" />
-          Something went wrong when we tried to transfer your cart
+          장바구니를 계정에 연결하는 중 오류가 발생했습니다
         </span>
 
         <span>·</span>

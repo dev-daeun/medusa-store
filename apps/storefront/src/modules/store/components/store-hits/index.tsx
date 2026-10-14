@@ -54,7 +54,7 @@ const StoreHits = ({ hitsPerPage, currencyCode }: StoreHitsProps) => {
         className="py-16 text-center text-ui-fg-error"
         data-testid="products-error"
       >
-        Couldn&apos;t load products
+        상품을 불러오지 못했습니다
         {error?.message ? `: ${error.message}` : "."}
       </Text>
     )
@@ -69,7 +69,7 @@ const StoreHits = ({ hitsPerPage, currencyCode }: StoreHitsProps) => {
           className="py-16 text-center text-ui-fg-subtle"
           data-testid="no-products"
         >
-          No products matched these filters.
+          선택하신 조건에 맞는 상품이 없습니다
         </Text>
       ) : (
         <ul

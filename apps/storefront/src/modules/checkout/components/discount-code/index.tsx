@@ -64,10 +64,10 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               className="txt-medium text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
               data-testid="add-discount-button"
             >
-              Add Promotion Code(s)
+              할인코드 추가
             </button>
 
-            {/* <Tooltip content="You can add multiple promotion codes">
+            {/* <Tooltip content="할인코드를 여러 개 추가할 수 있습니다">
               <InformationCircleSolid color="var(--fg-muted)" />
             </Tooltip> */}
           </Label>
@@ -80,6 +80,8 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                   id="promotion-input"
                   name="code"
                   type="text"
+                  placeholder="할인코드"
+                  aria-label="할인코드"
                   autoFocus={false}
                   data-testid="discount-input"
                 />
@@ -87,7 +89,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                   variant="secondary"
                   data-testid="discount-apply-button"
                 >
-                  Apply
+                  적용
                 </SubmitButton>
               </div>
 
@@ -103,7 +105,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
           <div className="w-full flex items-center">
             <div className="flex flex-col w-full">
               <Heading className="txt-medium mb-2">
-                Promotion(s) applied:
+                적용된 할인:
               </Heading>
 
               {promotions.map((promotion) => {
@@ -138,7 +140,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                           )}
                         )
                         {/* {promotion.is_automatic && (
-                          <Tooltip content="This promotion is automatically applied">
+                          <Tooltip content="자동으로 적용되는 할인입니다">
                             <InformationCircleSolid className="inline text-zinc-400" />
                           </Tooltip>
                         )} */}
@@ -158,7 +160,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                       >
                         <Trash size={14} />
                         <span className="sr-only">
-                          Remove discount code from order
+                          할인코드 삭제
                         </span>
                       </button>
                     )}

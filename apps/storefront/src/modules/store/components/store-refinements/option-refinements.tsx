@@ -10,6 +10,11 @@ import { OPTION_VALUES_ATTRIBUTE } from "./attributes"
 
 const FACET_LIMIT = 200
 
+const optionTitleLabels: Record<string, string> = {
+  size: "사이즈",
+  color: "색상",
+}
+
 type OptionGroup = {
   title: string
   values: {
@@ -97,7 +102,7 @@ const OptionRefinements = () => {
               <Accordion.Trigger className="flex w-full items-center justify-between py-3 text-left">
                 <div className="flex items-center gap-2">
                   <span className="txt-compact-small-plus text-ui-fg-base">
-                    {group.title}
+                    {optionTitleLabels[group.title.toLowerCase()] ?? group.title}
                   </span>
                   <span className="txt-compact-small-plus text-ui-fg-muted">
                     ({selectedCount})

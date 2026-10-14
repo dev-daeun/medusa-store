@@ -31,8 +31,8 @@ const Register = ({ setCurrentView }: Props) => {
           className="w-full mb-4 text-center text-base-regular text-ui-fg-base bg-ui-bg-subtle border border-ui-border-base rounded-rounded p-4"
           data-testid="register-verification-message"
         >
-          We sent a verification link to <strong>{message.email}</strong>.
-          Please check your inbox to verify your email, then sign in.
+          <strong>{message.email}</strong> 입력하신 이메일 주소로 인증 링크를 보냈습니다.
+          받은 메일함에서 이메일 인증을 완료한 후 로그인해 주세요.
         </div>
       )}
       <form className="w-full flex flex-col" action={formAction}>

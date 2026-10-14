@@ -19,6 +19,13 @@ const SideMenuItems = {
   Cart: "/cart",
 }
 
+const sideMenuLabels: Record<string, string> = {
+  Home: "Home",
+  Store: "Store",
+  Account: "Account",
+  Cart: "Cart",
+}
+
 type SideMenuProps = {
   regions: HttpTypes.StoreRegion[] | null
   locales: Locale[] | null
@@ -68,7 +75,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                     className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-rounded justify-between p-6"
                   >
                     <div className="flex justify-end" id="xmark">
-                      <button data-testid="close-menu-button" onClick={close}>
+                      <button data-testid="close-menu-button" onClick={close} aria-label="메뉴 닫기">
                         <XMark />
                       </button>
                     </div>
@@ -82,7 +89,7 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                               onClick={close}
                               data-testid={`${name.toLowerCase()}-link`}
                             >
-                              {name}
+                              {sideMenuLabels[name]}
                             </LocalizedClientLink>
                           </li>
                         )
