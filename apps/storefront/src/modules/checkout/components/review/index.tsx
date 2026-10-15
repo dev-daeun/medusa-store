@@ -32,7 +32,7 @@ const Review = ({ cart }: { cart: HttpTypes.StoreCart }) => {
             }
           )}
         >
-          Review
+          주문확인
         </Heading>
       </div>
       {isOpen && previousStepsCompleted && (
@@ -40,10 +40,9 @@ const Review = ({ cart }: { cart: HttpTypes.StoreCart }) => {
           <div className="flex items-start gap-x-1 w-full mb-6">
             <div className="w-full">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                By clicking the Place Order button, you confirm that you have
-                read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read Medusa
-                Store&apos;s Privacy Policy.
+                주문하기 버튼을 누르면 이용약관, 판매약관 및 반품정책을 읽고
+                이해했으며 이에 동의하고, 메두사 스토어의 개인정보처리방침을
+                확인한 것으로 간주됩니다.
               </Text>
             </div>
           </div>

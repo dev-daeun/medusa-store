@@ -7,8 +7,8 @@ import { getRegion } from "@lib/data/regions"
 import { retrieveCustomer } from "@lib/data/customer"
 
 export const metadata: Metadata = {
-  title: "Addresses",
-  description: "View your addresses",
+  title: "배송지",
+  description: "저장한 배송지를 조회하고 수정하세요",
 }
 
 export default async function Addresses(props: {
@@ -26,10 +26,10 @@ export default async function Addresses(props: {
   return (
     <div className="w-full" data-testid="addresses-page-wrapper">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Shipping Addresses</h1>
+        <h1 className="text-2xl-semi">배송지</h1>
         <p className="text-base-regular">
-          View and update your shipping addresses, you can add as many as you
-          like. Saving your addresses will make them available during checkout.
+          배송지를 조회하고 수정할 수 있습니다. 여러 배송지를 등록해 두면 주문할
+          때 저장한 배송지를 선택할 수 있습니다.
         </p>
       </div>
       <AddressBook customer={customer} region={region} />

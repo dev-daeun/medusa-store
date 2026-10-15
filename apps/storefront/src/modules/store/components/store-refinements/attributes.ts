@@ -9,20 +9,20 @@ export const getSortOptions = (currencyCode: string) => {
   const minPrice = priceAttribute("min_price", currencyCode)
 
   return [
-    { value: PRODUCT_INDEX_NAME, label: "Relevance" },
+    { value: PRODUCT_INDEX_NAME, label: "관련도순" },
     {
       value: `${PRODUCT_INDEX_NAME}/sort/created_at:desc`,
-      label: "Latest Arrivals",
+      label: "신상품순",
     },
     {
       value: `${PRODUCT_INDEX_NAME}/sort/${minPrice}:asc`,
-      label: "Price: Low -> High",
+      label: "낮은가격순",
     },
     {
       value: `${PRODUCT_INDEX_NAME}/sort/${minPrice}:desc`,
-      label: "Price: High -> Low",
+      label: "높은가격순",
     },
-    { value: `${PRODUCT_INDEX_NAME}/sort/title:asc`, label: "Title: A -> Z" },
-    { value: `${PRODUCT_INDEX_NAME}/sort/title:desc`, label: "Title: Z -> A" },
+    { value: `${PRODUCT_INDEX_NAME}/sort/title:asc`, label: "상품명 오름차순" },
+    { value: `${PRODUCT_INDEX_NAME}/sort/title:desc`, label: "상품명 내림차순" },
   ]
 }

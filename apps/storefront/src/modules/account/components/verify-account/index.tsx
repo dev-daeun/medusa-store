@@ -37,21 +37,21 @@ const VerifyAccount = () => {
       className="max-w-sm w-full flex flex-col items-center text-center gap-y-4"
       data-testid="verify-account-page"
     >
-      <h1 className="text-large-semi uppercase">Email verification</h1>
+      <h1 className="text-large-semi uppercase">이메일 인증</h1>
 
       {state === "verifying" && (
         <p className="text-base-regular text-ui-fg-base">
-          Verifying your email...
+          이메일을 인증하고 있습니다...
         </p>
       )}
 
       {state === "success" && (
         <>
           <p className="text-base-regular text-ui-fg-base">
-            Your email is verified. You can now sign in to your account.
+            이메일 인증이 완료되었습니다. 이제 계정에 로그인할 수 있습니다.
           </p>
           <LocalizedClientLink href="/account">
-            <Button variant="primary">Go to sign in</Button>
+            <Button variant="primary">로그인하기</Button>
           </LocalizedClientLink>
         </>
       )}
@@ -59,11 +59,11 @@ const VerifyAccount = () => {
       {state === "error" && (
         <>
           <p className="text-base-regular text-ui-fg-base">
-            This verification link is invalid or has expired. Sign in to receive
-            a new verification email.
+            인증 링크가 올바르지 않거나 만료되었습니다. 로그인 화면에서 다시
+            로그인을 시도하면 새 인증 이메일을 받을 수 있습니다.
           </p>
           <LocalizedClientLink href="/account">
-            <Button variant="secondary">Go to sign in</Button>
+            <Button variant="secondary">로그인하기</Button>
           </LocalizedClientLink>
         </>
       )}

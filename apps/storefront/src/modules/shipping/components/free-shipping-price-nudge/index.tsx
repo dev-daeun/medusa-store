@@ -150,10 +150,10 @@ function FreeShippingInline({
               <div className="flex items-center gap-1.5">
                 {" "}
                 <CheckCircleSolid className="text-green-500 inline-block" />{" "}
-                Free Shipping unlocked!
+                무료배송 혜택이 적용됩니다!
               </div>
             ) : (
-              `Unlock Free Shipping`
+              `무료배송 혜택 미적용`
             )}
           </div>
 
@@ -162,14 +162,13 @@ function FreeShippingInline({
               "opacity-0 invisible": price.target_reached,
             })}
           >
-            Only{" "}
             <span className="text-neutral-950">
               {convertToLocale({
                 amount: price.target_remaining,
                 currency_code: cart.currency_code,
               })}
             </span>{" "}
-            away
+            더 담으면 무료배송
           </div>
         </div>
         <div className="flex justify-between gap-1">
@@ -213,6 +212,7 @@ function FreeShippingPopup({
         <Button
           className="rounded-full bg-neutral-900 shadow-none outline-none border-none text-[15px] p-2"
           onClick={() => setIsClosed(true)}
+          aria-label="무료배송 안내 닫기"
         >
           <XMark />
         </Button>
@@ -226,10 +226,10 @@ function FreeShippingPopup({
                 {price.target_reached ? (
                   <div className="flex items-center gap-1.5">
                     <CheckCircleSolid className="text-green-500 inline-block" />{" "}
-                    Free Shipping unlocked!
+                    무료배송 혜택이 적용됩니다!
                   </div>
                 ) : (
-                  `Unlock Free Shipping`
+                  `무료배송 혜택 미적용`
                 )}
               </div>
 
@@ -238,14 +238,13 @@ function FreeShippingPopup({
                   "opacity-0 invisible": price.target_reached,
                 })}
               >
-                Only{" "}
                 <span className="text-white">
                   {convertToLocale({
                     amount: price.target_remaining,
                     currency_code: cart.currency_code,
                   })}
                 </span>{" "}
-                away
+                더 담으면 무료배송
               </div>
             </div>
             <div className="flex justify-between gap-1">
@@ -268,14 +267,14 @@ function FreeShippingPopup({
             className="rounded-2xl bg-transparent shadow-none outline-none border-[1px] border-white text-[15px] py-2.5 px-4"
             href="/cart"
           >
-            View cart
+            장바구니 보기
           </LocalizedClientLink>
 
           <LocalizedClientLink
             className="flex-grow rounded-2xl bg-white text-neutral-950 shadow-none outline-none border-[1px] border-white text-[15px] py-2.5 px-4 text-center"
             href="/store"
           >
-            View products
+            상품보기
           </LocalizedClientLink>
         </div>
       </div>

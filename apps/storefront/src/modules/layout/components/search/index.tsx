@@ -56,8 +56,8 @@ const SearchPanel = ({ onNavigate }: { onNavigate: () => void }) => {
             setInputValue(event.target.value)
             refine(event.target.value)
           }}
-          placeholder="Search products"
-          aria-label="Search products"
+          placeholder="상품검색"
+          aria-label="상품검색"
           autoFocus
           className="txt-medium w-full bg-transparent py-4 text-ui-fg-base outline-none placeholder:text-ui-fg-muted"
           data-testid="search-input"
@@ -70,14 +70,14 @@ const SearchPanel = ({ onNavigate }: { onNavigate: () => void }) => {
             className="px-4 py-6 text-center text-ui-fg-muted"
             data-testid="search-empty"
           >
-            Start typing to search for products.
+            검색어를 입력해주세요
           </Text>
         ) : status === "error" ? (
           <Text
             className="px-4 py-6 text-center text-ui-fg-error"
             data-testid="search-error"
           >
-            Couldn&apos;t search products
+            상품을 검색하지 못했습니다
             {error?.message ? `: ${error.message}` : "."}
           </Text>
         ) : !isSettled ? (
@@ -85,7 +85,7 @@ const SearchPanel = ({ onNavigate }: { onNavigate: () => void }) => {
             className="px-4 py-6 text-center text-ui-fg-muted"
             data-testid="search-loading"
           >
-            Searching&hellip;
+            검색중&hellip;
           </Text>
         ) : hasResults ? (
           <ul className="py-2" data-testid="search-results">
@@ -98,14 +98,14 @@ const SearchPanel = ({ onNavigate }: { onNavigate: () => void }) => {
             className="px-4 py-6 text-center text-ui-fg-muted"
             data-testid="search-loading"
           >
-            Searching&hellip;
+            검색중&hellip;
           </Text>
         ) : (
           <Text
             className="px-4 py-6 text-center text-ui-fg-subtle"
             data-testid="search-no-results"
           >
-            No products found for &quot;{query}&quot;
+            &quot;{query}&quot;에 대한 검색결과가 없습니다
           </Text>
         )}
       </div>
@@ -121,7 +121,7 @@ const Search = () => {
       <button
         type="button"
         onClick={open}
-        aria-label="Search products"
+        aria-label="상품검색"
         className="flex items-center hover:text-ui-fg-base"
         data-testid="nav-search-button"
       >
