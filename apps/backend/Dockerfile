@@ -16,7 +16,7 @@ COPY --chmod=755 start.sh /usr/local/bin/start-medusa
 
 WORKDIR /server/apps/backend
 
-RUN --mount=type=secret,id=backend_env,target=/server/apps/backend/.env,required=true \
+RUN --mount=type=secret,id=backend_env,target=/server/apps/backend/.env,required=false \
     pnpm build
 
 WORKDIR /server/apps/backend/.medusa/server
@@ -24,6 +24,6 @@ WORKDIR /server/apps/backend/.medusa/server
 RUN ln -s ../../node_modules node_modules \
     && test -x node_modules/.bin/medusa
 
-EXPOSE 9000 5173
+EXPOSE 9000
 
 ENTRYPOINT ["/usr/local/bin/start-medusa"]

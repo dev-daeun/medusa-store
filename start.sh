@@ -5,8 +5,5 @@ cd /server/apps/backend/.medusa/server
 
 test -f public/admin/index.html
 
-echo "Running database migrations..."
-pnpm medusa db:migrate
-
 echo "Starting backend server..."
-exec pnpm start
+exec pnpm start --host 0.0.0.0 --port "${PORT:-9000}"
