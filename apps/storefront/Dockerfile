@@ -17,7 +17,7 @@ COPY --chmod=755 start-storefront.sh /usr/local/bin/start-storefront
 
 WORKDIR /server/apps/storefront
 
-RUN --mount=type=secret,id=storefront_env,target=/server/apps/storefront/.env,required=true \
+RUN --mount=type=secret,id=storefront_env,target=/server/apps/storefront/.env,required=false \
     pnpm build
 
 EXPOSE 8000
