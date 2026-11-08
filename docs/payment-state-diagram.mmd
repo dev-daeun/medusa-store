@@ -1,0 +1,17 @@
+stateDiagram-v2
+    direction LR
+    state "미결제 (not_paid)" as not_paid
+    state "결제대기 (awaiting)" as awaiting
+    state "결제승인 (authorized)" as authorized
+    state "결제완료 (captured)" as captured
+    state "환불완료 (refunded)" as refunded
+    state "취소됨 (canceled)" as canceled
+
+    [*] --> not_paid
+    not_paid --> awaiting: 결제 시작
+    awaiting --> authorized: 승인
+    authorized --> captured: 매입
+    awaiting --> captured: 즉시 결제
+    captured --> refunded: 환불
+    awaiting --> canceled: 결제 취소
+    authorized --> canceled: 승인 취소

@@ -1,0 +1,14 @@
+stateDiagram-v2
+    direction LR
+    state "배송준비중 (not_fulfilled)" as not_fulfilled
+    state "배송준비 완료 (fulfilled)" as fulfilled
+    state "발송완료 (shipped)" as shipped
+    state "배송완료 (delivered)" as delivered
+    state "취소됨 (canceled)" as canceled
+
+    [*] --> not_fulfilled
+    not_fulfilled --> fulfilled: 배송 준비
+    fulfilled --> shipped: 발송
+    shipped --> delivered: 배송 완료
+    not_fulfilled --> canceled: 취소
+    fulfilled --> canceled: 취소

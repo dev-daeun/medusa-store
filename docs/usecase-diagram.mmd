@@ -1,0 +1,62 @@
+flowchart LR
+    guest["비회원"]
+    member["회원"]
+    admin["운영자"]
+    pg["외부 결제 시스템"]
+
+    subgraph store["Medusa Store MVP"]
+        direction TB
+
+        subgraph catalog["상품 탐색 및 장바구니"]
+            US01(["US-01 판매 상품 목록 확인"])
+            US02(["US-02 상품 상세와 옵션 확인"])
+            US03(["US-03 장바구니 담기"])
+            US04(["US-04 장바구니 수정과 유지"])
+        end
+
+        subgraph account["회원 계정"]
+            US05(["US-05 로그인 · P1"])
+            US06(["US-06 회원가입 · P1"])
+            US07(["US-07 프로필 조회 · P1"])
+            US08(["US-08 배송지 저장 및 수정"])
+        end
+
+        subgraph order["회원 주문 · 로그인 필수"]
+            US09(["US-09 주문 정보 입력"])
+            US10(["US-10 배송 방법과 최종 금액 확인"])
+            US11(["US-11 결제와 주문 확정"])
+            US12(["US-12 주문 결과 확인"])
+        end
+
+        subgraph operation["운영자 전용"]
+            US13(["US-13 상품·가격·재고 관리"])
+            US14(["US-14 주문 확인과 출고"])
+            US15(["US-15 출고 전 취소와 환불"])
+        end
+    end
+
+    guest --- US01
+    guest --- US02
+    guest --- US03
+    guest --- US04
+    guest --- US05
+    guest --- US06
+
+    member --- US01
+    member --- US02
+    member --- US03
+    member --- US04
+    member --- US05
+    member --- US07
+    member --- US08
+    member --- US09
+    member --- US10
+    member --- US11
+    member --- US12
+
+    admin --- US13
+    admin --- US14
+    admin --- US15
+
+    pg --- US11
+    pg --- US15
