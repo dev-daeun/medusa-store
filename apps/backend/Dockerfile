@@ -13,6 +13,7 @@ RUN pnpm install --frozen-lockfile --filter @dtc/backend...
 COPY apps/backend/medusa-config.ts apps/backend/tsconfig.json apps/backend/instrumentation.ts ./apps/backend/
 COPY apps/backend/src ./apps/backend/src
 COPY --chmod=755 start.sh /usr/local/bin/start-medusa
+COPY openapi.yaml ./openapi.yaml
 
 WORKDIR /server/apps/backend
 
